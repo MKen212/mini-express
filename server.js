@@ -12,10 +12,10 @@ const app       = express();
 const helmet    = require("helmet");
 const portHTTP  = 8080;
 const portHTTPS = 8443;
-const url       = "YOUR URL";
+const certPath  = "PATH TO YOUR CERTIFICATES, e.g. /etc/letsencrypt/live/URL";
 const options   = {
-  cert: fs.readFileSync(`/etc/letsencrypt/live/${url}/fullchain.pem`),
-  key: fs.readFileSync(`/etc/letsencrypt/live/${url}/privkey.pem`)
+  cert: fs.readFileSync(`${certPath}/fullchain.pem`),
+  key: fs.readFileSync(`${certPath}/privkey.pem`)
 };
 
 // Use Helmet to protect from web vulnerabilities
