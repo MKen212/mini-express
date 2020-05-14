@@ -4,24 +4,31 @@
  * Hosts \public\index.html and interacts with web server
  */
 
-
 // Set-up server
 const https = require("https");
 const fs = require("fs");
 const express   = require("express");
 const app       = express();
+const helmet    = require("helmet");
 const portHTTP  = 8080;
 const portHTTPS = 8443;
+const url       = "YOUR URL";
 const options   = {
-  cert: fs.readFileSync("/etc/letsencrypt/live/ethfundraiser.xyz/fullchain.pem"),
-  key: fs.readFileSync("/etc/letsencrypt/live/ethfundraiser.xyz/privkey.pem")
+  cert: fs.readFileSync(`/etc/letsencrypt/live/${url}/fullchain.pem`),
+  key: fs.readFileSync(`/etc/letsencrypt/live/${url}/privkey.pem`)
 };
 
-// setup directory used to serve static files
+// Use Helmet to protect from web vulnerabilities
+app.use(helmet());
+
+// Set-up directory used to serve static files
 app.use(express.static("./public"));
 
-// start server
+// Start HTTP server
 app.listen(portHTTP, function(){
-  console.log(`Express Web Server is running on port ${portHTTP}...`);
+  console.log(`Express HTTP Web Server is running on port ${portHTTP}...`);
 });
+
+// Start HTTPS server
 https.createServer(options, app).listen(portHTTPS);
+console.log(`Express HTTPS Web Server is running on port ${portHTTPS}...`);
