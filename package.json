@@ -1,0 +1,23 @@
+{
+  "name": "mini-express",
+  "version": "1.0.0",
+  "description": "Mini Express WebServer running HTTP & HTTPS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MKen212/mini-express.git"
+  },
+  "author": "Malarena SA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MKen212/mini-express/issues"
+  },
+  "homepage": "https://github.com/MKen212/mini-express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
