@@ -14,6 +14,11 @@ Mini Express WebServer running HTTP & HTTPS
 - From a terminal prompt, clone this repository using `git clone https://github.com/MKen212/mini-express.git`
 - Enter `cd mini-express` to change to the repository directory
 - Run `npm install` to load the required node modules
-- Run `nano server.js` to edit the server file and modify the certPath = '' directory with the path to your HTTPS certificate & key files. If you only require an HTTP server you can comment out the HTTPS sections and the re-direct as required. Save & Exit
+- Run `nano server.js` to edit the server file and modify the certPath = '' directory with the path to your HTTPS certificate & key files. Save & Exit
 - Run `npm start` to start the Express Server. You should now be able to connect to your webserver via both HTTP and HTTPS. You can test using `curl http://<your_server_url>/.well-known/acme-challenge/9001` and should get a "This is a test" response if all OK
 - If you want to keep this server running, install and use something like [pm2](https://pm2.keymetrics.io/)
+
+## HTTP or HTTPS Stand-alone:
+- There are two other options if you want to just run HTTP or HTTPS only:
+  - server-http.js - For running just an HTTP Server - run `node server-http.js`
+  - server-https.js - For running just an HTTPS Server - Modify this file as above to include the path to your certificates and then run `node server-https.js`
